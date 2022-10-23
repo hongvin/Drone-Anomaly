@@ -117,11 +117,11 @@ def save_model(save_dir, epoch, model, optimizer, lr_scheduler, device_ids, best
         'optimizer': optimizer.state_dict(),
         'lr_scheduler': lr_scheduler.state_dict(),
     }
-    filename = str('/home/user/anomaly/final_codes/vision-transformer-pytorch-main/check_points/' + 'current.pth')
+    filename = str('/kaggle/output/check_points/' + 'current.pth')
     torch.save(state, filename)
 
     if best:
-        filename = str('/home/user/anomaly/final_codes/vision-transformer-pytorch-main/check_points/' + 'best.pth')
+        filename = str('/kaggle/output/check_points/' + 'best.pth')
         torch.save(state, filename)
 
 
@@ -302,7 +302,7 @@ def test(model, test_batch, test_label, num_frames, device):
 
 
 def main():
-    path = '../input/drone-anomaly/Drone-Anomaly/'
+    path = '/kaggle/input/drone-anomaly/Drone-Anomaly/'
     data_provider(path)
 
 
