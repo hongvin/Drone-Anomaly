@@ -35,7 +35,7 @@ loss_func_mse = nn.MSELoss(reduction='mean')
 #     return recons_loss
 
 
-def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, metrics, device=torch.device('gpu')):
+def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, metrics, device=torch.device('cuda')):
     metrics.reset()
     average_loss = []
     # training loop
@@ -72,7 +72,7 @@ def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, 
     return metrics.result()
 
 
-def valid_epoch(model, data_loader, valid_label, num_frames, device=torch.device('gpu')):
+def valid_epoch(model, data_loader, valid_label, num_frames, device=torch.device('cuda')):
     # metrics.reset()
     losses = []
     acc1s = []
