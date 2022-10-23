@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-import pdb
+#import pdb
 
 class PositionEmbs(nn.Module):
     def __init__(self, num_patches, emb_dim, dropout_rate=0.1):
@@ -317,7 +317,7 @@ class VisionTransformer(nn.Module):
         # loss_sphere = self.radius.pow(2) + max_scores
 
         #decoder
-        pdb.set_trace()
+        #pdb.set_trace()
         output = self.decoder(feat)
 
         # classifier
