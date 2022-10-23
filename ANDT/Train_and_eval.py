@@ -148,17 +148,16 @@ def data_provider(path):
             for sequence in sequence_names:
                 print('    --------%s--------' % sequence)
                 data_paths = glob.glob(os.path.join(sequence, '*'))
-                train_paths = data_paths[0]
+                train_paths = data_paths[1]
                 
-                test_labels = glob.glob(os.path.join(data_paths[1], '*.npy'))
-                test_labels.sort(key=lambda x: int(x[len(data_paths[1])+1:-4]))
+                test_labels = glob.glob(os.path.join(data_paths[0], '*.npy'))
+                test_labels.sort(key=lambda x: int(x[len(data_paths[0])+1:-4]))
                 test_paths = []
-                for root, dirnames, filenames in os.walk(data_paths[1]):
+                for root, dirnames, filenames in os.walk(data_paths[0]):
                     for dirname in dirnames:
                         test_paths.append(os.path.join(root, dirname))
                 test_paths.sort(key=lambda x: int(x[-2:]))
                 print('        --------training--------')
-                print(train_paths)
                 
                 train_batch = load_dataset(train_paths, config.batch_size, 4, config.image_size, config.num_frames)
                 train(train_batch, test_paths, test_labels)
