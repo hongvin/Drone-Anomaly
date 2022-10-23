@@ -221,8 +221,9 @@ class Decoder(nn.Module):
     def forward(self, x):
         # output = self.de_dense(x)
         
-        print(x.shape)
-        output = x.view(x.size(0), 256, 16, 16)
+        #print(x.shape)
+        #output = x.view(x.size(0), 256, 16, 16)
+        output = x.view(x.size(0), 771, 16, 16)
         output = self.decoder(output)
 
         return output
