@@ -139,6 +139,7 @@ def data_provider(path):
     #                               shuffle=True, num_workers=4, drop_last=True)
     scene_names = glob.glob(os.path.join(path, '*'))
     scene_names.sort()
+    print(scene_names)
     for s in range(len(scene_names)):
         scene = scene_names[s]
         if s == 0:
