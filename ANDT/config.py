@@ -42,7 +42,7 @@ def get_train_config():
     parser.add_argument("--lr", type=float, default=1e-3, help="learning rate")
     parser.add_argument("--wd", type=float, default=1e-4, help='weight decay')
     parser.add_argument("--warmup-steps", type=int, default=500, help='learning rate warm up steps')
-    parser.add_argument("--data-dir", type=str, default='../data', help='data folder')
+    parser.add_argument("--data-dir", type=str, default='../input/drone-anomaly/Drone-Anomaly', help='data folder')
     parser.add_argument("--dataset", type=str, default='ImageNet', help="dataset for fine-tunning/evaluation")
     parser.add_argument("--num-classes", type=int, default=25, help="number of classes in dataset")
     config = parser.parse_args()
