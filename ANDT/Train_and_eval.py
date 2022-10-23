@@ -16,8 +16,8 @@ import pdb
 import time
 
 
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+#os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+#os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 
 loss_func_mse = nn.MSELoss(reduction='mean')
@@ -35,7 +35,7 @@ loss_func_mse = nn.MSELoss(reduction='mean')
 #     return recons_loss
 
 
-def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, metrics, device=torch.device('cpu')):
+def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, metrics, device=torch.device('gpu')):
     metrics.reset()
     average_loss = []
     # training loop
@@ -72,7 +72,7 @@ def train_epoch(epoch, model, data_loader, num_frames, optimizer, lr_scheduler, 
     return metrics.result()
 
 
-def valid_epoch(model, data_loader, valid_label, num_frames, device=torch.device('cpu')):
+def valid_epoch(model, data_loader, valid_label, num_frames, device=torch.device('gpu')):
     # metrics.reset()
     losses = []
     acc1s = []
@@ -187,6 +187,7 @@ def train(train_batch, test_paths, test_labels):
 
     # device
     device, device_ids = setup_device(config.n_gpu)
+    print('Device',device)
 
     # tensorboard
     writer = TensorboardWriter(config.summary_dir, config.tensorboard)
