@@ -222,8 +222,8 @@ class Decoder(nn.Module):
         # output = self.de_dense(x)
         
         #print(x.shape)
-        #output = x.view(x.size(0), 256, 16, 16)
-        output = x.view(x.size(0), 771, 16, 16)
+        output = x.view(x.size(0), 256, 16, 16)
+        #output = x.view(x.size(0), 771, 16, 16)
         output = self.decoder(output)
 
         return output
@@ -320,6 +320,7 @@ class VisionTransformer(nn.Module):
 
         #decoder
         #pdb.set_trace()
+        print(feat.shape)
         output = self.decoder(feat)
 
         # classifier
