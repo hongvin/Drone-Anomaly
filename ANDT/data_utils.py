@@ -41,7 +41,7 @@ class DataLoader(data.Dataset):
 
     def setup(self):
         videos = glob.glob(os.path.join(self.dir, '*'))
-        print(videos)
+        #print(videos)
         if os.path.isdir(videos[0]):
             all_video_frames = []
             videos.sort(key=lambda x: int(x[-2:]))
