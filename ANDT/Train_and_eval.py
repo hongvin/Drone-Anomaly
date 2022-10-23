@@ -158,6 +158,7 @@ def data_provider(path):
                         test_paths.append(os.path.join(root, dirname))
                 test_paths.sort(key=lambda x: int(x[-2:]))
                 print('        --------training--------')
+                print(train_paths)
                 
                 train_batch = load_dataset(train_paths, config.batch_size, 4, config.image_size, config.num_frames)
                 train(train_batch, test_paths, test_labels)
