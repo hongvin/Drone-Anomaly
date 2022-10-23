@@ -302,7 +302,7 @@ def test(model, test_batch, test_label, num_frames, device):
 
 
 def main():
-    path = '/home/user/anomaly/final_data/Drone-Anomaly/'
+    path = '../drone-anomaly/Drone-Anomaly/'
     data_provider(path)
 
 
